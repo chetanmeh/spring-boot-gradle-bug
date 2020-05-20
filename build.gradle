@@ -17,6 +17,13 @@ springBoot {
     mainClassName = 'com.example.Main'
 }
 
+//https://github.com/spring-projects/spring-boot/issues/21511
+configurations.all {
+    if (name.startsWith("incrementalScalaAnalysis")) {
+        extendsFrom = []
+    }
+}
+
 bootJar {
     layered()
 }
